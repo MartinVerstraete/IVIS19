@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Meat EU</title>
+		<link rel="shortcut icon" href="Logos/pieceOfMeat.jpg">
+		<meta name="keywords" content="EU, d3, meat" />
+		<meta name="description" content="Meat Import in Europe">
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Stilovi -->
+		<link rel='stylesheet' type='text/css' href='Styles/style.css' />
+		<link rel='stylesheet' type='text/css' href='Styles/ALDE.css' />
+		<link rel='stylesheet' type='text/css' href='Styles/preloader.css'/>
+		<!-- Skripte -->
+		<script type='text/javascript' src='Scripts/jquery-1.9.1.min.js'></script>
+		<script type='text/javascript' src='Scripts/menu_jquery.js'></script>
+		<script type='text/javascript' src="Scripts/d3.v3.min.js"></script>
+
+	</head>
+	<body class="royal_loader">
+		<div id ="legend">
+			<h1 id="Element displayed">Imports of Sheep, 2016</h1>
+			<table border="0" cellspacing="2"  cellpadding="3">
+				<tr><td bgcolor="White" align="center"><p>KG per Capita</p></td></tr>
+				<tr><td bgcolor="#662506" align="center"><p>5.130+</p></td></tr>
+				<tr><td bgcolor="#993404" align="center"><p>1.309-5.130</p></td></tr>
+				<tr><td bgcolor="#cc4c02" align="center"><p>0.425-1.309</p></td></tr>
+				<tr><td bgcolor="#ec7014" align="center"><p>0.149-0.425</p></td></tr>
+				<tr><td bgcolor="#fe9929" align="center"><p>0.041-0.149</p></td></tr>
+				<tr><td bgcolor="#fec44f" align="center"><p>0.009-0.041</p></td></tr>
+				<tr><td bgcolor="#fee391" align="center"><p>0.001-0.009</p></td></tr>
+				<tr><td bgcolor="#fff7bc" align="center"><p>0-0.001</p></td></tr>
+				</table>
+		</div>
+		<div id='cssmenu'>
+		<ul>
+			<li class='has-sub'><a href='#'><span>Kind of Meat</span></a>
+			 <ul>
+				<li ><a name="Meat" onclick=myFunction2(this.name)><span>Meat</span></a></li>
+				<li ><a name="Beef" onclick="myFunction2(this.name)"><span>Beef</span></a></li>
+				<li ><a name="Pork" onclick="myFunction2(this.name)"><span>Pork</span></a></li>
+				<li ><a name="Rabbit"  onclick="myFunction2(this.name)"><span>Rabbit</span></a></li>
+				<li ><a name="Chicken"  onclick="myFunction2(this.name)"><span>Chicken</span></a></li>
+				<li ><a name="Duck"  onclick="myFunction2(this.name)"><span>Duck</span></a></li>
+				<li ><a name="Turkey"  onclick="myFunction2(this.name)"><span>Turkey</span></a></li>
+				<li ><a name="Other Poultry"  onclick="myFunction2(this.name)"><span>Other Poultry</span></a></li>
+				<li ><a name="Sheep"  onclick="myFunction2(this.name)"><span>Sheep</span></a></li>
+				<li ><a name="Nes"  onclick="myFunction2(this.name)"><span>Nes</span></a></li>
+				<li ><a name="Horse"  onclick="myFunction2(this.name)"><span>Horse</span></a></li>
+				<li ><a name="Game"  onclick="myFunction2(this.name)"><span>Game</span></a></li>
+				<li ><a name="Goat"  onclick="myFunction2(this.name)"><span>Goat</span></a></li>
+			</li>
+			 </ul>
+			</li>
+			<li class='has-sub'><a href='#'><span>Years</span></a>
+			<ul>
+				<li ><a name="2012"  value="INSERT VALUE" onclick="myFunction(this.name)" ><span>2012</span></a></li>
+				<li ><a name="2013"  value="INSERT VALUE" onclick="myFunction(this.name)"><span>2013</span></a></li>
+				<li ><a name="2014"  value="INSERT VALUE" onclick="myFunction(this.name)"><span>2014</span></a></li>
+				<li ><a name="2015"  value="INSERT VALUE" onclick="myFunction(this.name)"><span>2015</span></a></li>
+				<li class="active"><a name="2016"  value="INSERT VALUE" onclick="myFunction(this.name)"><span>2016</span></a></li>
+		 </ul>
+		 </li>
+		 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+		 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+		 <input type="checkbox" onchange="myFunction3(this)" checked data-toggle="toggle"
+		 	data-on="IMPORT ->" data-off="<- EXPORT" data-style="ios"
+			data-onstyle="default" data-height="45" data-width="120"
+			toggle-handle="default">
+		</ul>
+		</div>
+		<!-- SVG -->
+		<div id="map">
+			<!-- <svg>objekt</svg> -->
+		</div>
+		<div id="tooltip" class="hidden">
+			<p><strong>Country: <span id="country_id"></span></strong></p>
+			<p>Kg per Capita: <span id="value"></span></p>
+		</div>
+    </body>
+	<!-- Preloader  -->
+	<script>
+	$(".has-sub").on('click', 'li', function(e) {
+    $(this).parent().find('li.active').removeClass('active');
+    $(this).addClass('active');
+	});
+
+function myFunction(name) {
+  changeYear(name);
+	var element = document.getElementById("Element displayed");
+	element.innerHTML = impExp.substring(0,6)+"s of "+animal+" in "+year;
+	if (country != null){
+		window.open("Sankey-Diagram/sankeySpain.html?country=" + encodeURI(country)+"&year=" + encodeURI(year)+"&impExp=" + encodeURI(impExp),'rightframe');
+	}
+}
+function myFunction2(name) {
+  changeMeat(name);
+	var element = document.getElementById("Element displayed");
+	element.innerHTML = impExp.substring(0,6)+"s of "+name+" in "+year;
+}
+
+function myFunction3(toggle) {
+	if (toggle.checked) {
+		var import_export = "Import Quantity";
+	}
+	else {var import_export = "Export Quantity";}
+  changeImport_Export(import_export);
+	var element = document.getElementById("Element displayed");
+	element.innerHTML = impExp.substring(0,6)+"s of "+animal+" in "+year;
+	if (country != null){
+		window.open("Sankey-Diagram/sankeySpain.html?country=" + encodeURI(country)+"&year=" + encodeURI(year)+"&impExp=" + encodeURI(impExp),'rightframe');
+	}
+}
+
+</script>
+	<script type="text/javascript" src="Scripts/royal_preloader.min.js"></script>
+	<!-- 'Main' script  -->
+	<script type='text/javascript' src="Scripts/main.js"></script>
+	<!-- Meat values script -->
+	<script type='text/javascript' src="Scripts/sheep2016FormerALDE.js"></script>
+</html>

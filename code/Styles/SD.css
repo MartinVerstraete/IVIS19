@@ -1,0 +1,37 @@
+
+/** Zasebni stil za S&D **/
+
+body.royal_loader {
+    /*Fix za scroller*/
+	background: #ef3b2c;
+}
+
+#legend p {
+	color: #27000D;
+}
+#cssmenu {
+	background: #cb181d;
+}
+#cssmenu ul li ul li:hover > a,
+#cssmenu ul li ul li.active > a {
+	color: #cb181d;
+}
+#cssmenu ul li ul li:hover:after,
+#cssmenu ul li ul li.active:after {
+  background: #cb181d;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6); 
+	background-color: #fee0d2;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+	background-color: #fb6a4a;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}

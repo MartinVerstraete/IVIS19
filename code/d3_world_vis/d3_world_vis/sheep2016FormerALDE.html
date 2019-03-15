@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Meat Import 2016 </title>
+		<link rel="shortcut icon" href="Logos/logo.png">
+		<meta name="author" content="Alen Egredžija">
+		<meta name="keywords" content="EU, d3, Vizualizacija" />
+		<meta name="description" content="Meat Import in Europe">
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Stilovi -->
+		<link rel='stylesheet' type='text/css' href='Styles/style.css' />
+		<link rel='stylesheet' type='text/css' href='Styles/ALDE.css' />
+		<link rel='stylesheet' type='text/css' href='Styles/preloader.css'/>
+		<!-- Skripte -->
+		<script type='text/javascript' src='Scripts/jquery-1.9.1.min.js'></script>
+		<script type='text/javascript' src='Scripts/menu_jquery.js'></script>
+		<script type='text/javascript' src="Scripts/d3.v3.min.js"></script>
+	</head>
+	<body class="royal_loader">
+		<div id ="legend">
+			<table border="0" cellspacing="2"  cellpadding="3">
+				<tr><td bgcolor="#662506" align="center"><p>Much more</p></td></tr>
+				<tr><td bgcolor="#993404" align="center"><p>More</p></td></tr>
+				<tr><td bgcolor="#cc4c02" align="center"><p>Kinda More</p></td></tr>
+				<tr><td bgcolor="#ec7014" align="center"><p>More "Lagom"</p></td></tr>
+				<tr><td bgcolor="#fe9929" align="center"><p>Little "Lagom"</p></td></tr>
+				<tr><td bgcolor="#fec44f" align="center"><p>Kinda Little</p></td></tr>
+				<tr><td bgcolor="#fee391" align="center"><p>Little</p></td></tr>
+				<tr><td bgcolor="#fff7bc" align="center"><p>Very little</p></td></tr>
+			</table>
+		</div>
+		<div id='cssmenu'>
+		<ul>
+		   <li class='has-sub'><a href='#'><span>Info and other Meats!</span></a>
+			  <ul>
+				 <li><a href='izlaznost'><span>TO BE DISPLAYED</span></a></li>
+				 <li class='has-sub active'><a href='#'><span>Kind of Meat</span></a>
+					<ul>
+					   <li><a href='EPP'><span>TO BE DISPLAYED</span></a></li>
+					   <li><a href='turkey2016FormerSD.html'><span>Turkey 2016 Import (SD or something)</span></a></li>
+					   <li class="active"><a href='sheep2016FormerALDE.html'><span>Sheep 2016 Import (ALDE)</span></a></li>
+					</ul>
+				 <li><a href='zajedno'><span>TO BE DISPLAYED</span></a></li>
+				 </li>
+			  </ul>
+		   </li>
+		</ul>
+		</div>
+		<!-- SVG -->
+		<div id="map">
+			<!-- <svg>objekt</svg> -->
+		</div>
+		<div id="tooltip" class="hidden">
+			<p><strong>Country: <span id="country"></span></strong></p>
+			<p>Kg per Capita: <span id="value"></span></p>
+		</div>
+    </body>
+	<!-- Preloader  -->
+	<script type="text/javascript" src="Scripts/royal_preloader.min.js"></script>
+	<!-- 'Main' skripta  -->
+	<script type='text/javascript' src="Scripts/main.js"></script>
+	<!-- Zasebna skripta za EPP -->
+	<script type='text/javascript' src="Scripts/sheep2016FormerALDE.js"></script>
+</html>

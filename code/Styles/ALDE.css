@@ -1,0 +1,37 @@
+
+/** Zasebni stil za ALDE **/
+
+body.royal_loader {
+    /*Fix za scroller*/
+	background: #fec44f;
+}
+
+#legend p {
+	color: #082506;
+}
+#cssmenu {
+	background: #fe9929;
+}
+#cssmenu ul li ul li:hover > a,
+#cssmenu ul li ul li.active > a {
+	color: #EDB400;
+}
+#cssmenu ul li ul li:hover:after,
+#cssmenu ul li ul li.active:after {
+  background: #EDB400;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+	background-color: #fff7bc;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+	background-color: #fe9929;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
